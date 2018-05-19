@@ -18,7 +18,7 @@ angular.module('jj.services', [])
             });
         };
 
-        this.signin = function (user, callback) {
+        this.signin = function (image_base64, callback) {
             var req = {
                 image: image_base64
             }

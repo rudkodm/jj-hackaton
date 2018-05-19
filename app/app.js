@@ -12,26 +12,33 @@ angular.module('jj', [
 
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $routeProvider
-            .when("/", {
+            .when("/landing", {
                 templateUrl: '1_landing/1_landing.html',
                 controller: 'landingCtrl',
-                activetab: '1_landing'
+                activetab: 'landing'
             })
             .when("/signup", {
                 templateUrl: '2_signup/2_signup.html',
                 controller: 'signupCtrl',
-                activetab: '2_signup'
+                activetab: 'signup'
             })
             .when("/signin", {
                 templateUrl: '3_signin/3_signin.html',
                 controller: 'signinCtrl',
-                activetab: '3_signin'
+                activetab: 'signin'
             })
             .when("/final", {
                 templateUrl: '4_final/4_final.html',
                 controller: 'finalCtrl',
-                activetab: '4_final'
+                activetab: 'final'
             })
-            .otherwise({redirectTo: '/'});
+            .otherwise({redirectTo: '/landing'});
     }])
+
+    .run(['$rootScope', '$location', function($rootScope, $location){
+    var path = function() { return $location.path();};
+    $rootScope.$watch(path, function(newVal, oldVal){
+        $rootScope.activetab = newVal;
+    });
+}])
 ;

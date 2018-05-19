@@ -1,12 +1,18 @@
-<div class="panel panel-default">
-<div class="panel-body">
-    <form>
-        <div class="form-group">
-            <label for="myFileField">Select a file: </label>
-            <input type="file" demo-file-model="myFile"  class="form-control" id ="myFileField"/>
-        </div>
-        <button ng-click="uploadFile()" class = "btn btn-primary">Upload File</button>
-    </form>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-3 px-md-5 text-center overflow-hidden">
+        <div class="bg-dark box-shadow mx-auto" id="my_camera"></div>
+        <a class="btn btn-outline-secondary" style="margin-top: 50px; margin-bottom: 50px"  role="button" ng-click="take_snapshot()">Take a Picture</a>
+    </div>
+
+
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-left overflow-hidden my-3 p-3"  ng-controller="signupCtrl">
+        <div ng-show="photo_base64 != null"><img src="{{photo_base64}}" height="50%" width="50%" /></div>
+        <form novalidate class="simple-form">
+            <label>Name: <input class="form-control" type="text" ng-model="user.name" /></label><br />
+            <label>Gender: <input class="form-control" type="text" ng-model="user.gender" placeholder="{{gender}}"/></label><br />
+            <label>Age: <input class="form-control" type="text" ng-model="user.age" placeholder="{{age}}"/></label><br />
+            <a class="btn btn-outline-secondary" style="margin-top: 50px; margin-bottom: 50px"  role="button" ng-click="save(user)">Submit</a>
+        </form>
+    </div>
 </div>
-</div>
-<div>{{serverResponse}}</div>

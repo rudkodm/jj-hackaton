@@ -2,62 +2,36 @@
 
 angular.module('jj.2_signup', ['ngRoute'])
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/2_signup', {
-            templateUrl: '2_signup/2_signup.html',
-            controller: 'signupCtrl'
+    .controller('signupCtrl', function ($scope, $log, UserService) {
+        Webcam.set({
+            width: 320,
+            height: 240,
+            dest_width: 640,
+            dest_height: 480,
+            image_format: 'jpeg',
+            jpeg_quality: 90
         });
-    }])
+        Webcam.attach('#my_camera');
 
-    .directive('demoFileModel', function ($parse) {
-        return {
-            restrict: 'A',
-            link: function (scope, element, attrs) {
-                var model = $parse(attrs.demoFileModel),
-                    modelSetter = model.assign;
-                element.bind('change', function () {
-                    scope.$apply(function () {
-                        modelSetter(scope, element[0].files[0]);
-                    });
-                });
-            }
-        };
-    })
+        $scope.take_snapshot = function () {
+            Webcam.snap(function (photo_base64) {
+                $scope.photo_base64 = photo_base64;
+                UserService.signin(photo_base64, function (data) {
+                    $log.debug(data);
 
-    .service('fileUploadService', function ($http, $q) {
-        this.uploadFileToUrl = function (file, uploadUrl) {
-            //FormData, object of key/value pair for form fields and values
-            var fileFormData = new FormData();
-            fileFormData.append('file', file);
-
-            var deffered = $q.defer();
-            $http.post(uploadUrl, fileFormData, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-
-            }).success(function (response) {
-                deffered.resolve(response);
-
-            }).error(function (response) {
-                deffered.reject(response);
+                    var faceDetails = data.faceInfo.FaceDetails[0];
+                    $scope.data = faceDetails;
+                    $scope.user = {age: faceDetails.AgeRange.Low, gender: faceDetails.Gender.Value};
+                })
             });
+        };
 
-            return deffered.promise;
-        }
-    })
-
-
-    .controller('signupCtrl', function ($scope, fileUploadService) {
-
-        $scope.uploadFile = function () {
-            var file = $scope.myFile;
-            var uploadUrl = "../server/service.php", //Url of webservice/api/server
-                promise = fileUploadService.uploadFileToUrl(file, uploadUrl);
-
-            promise.then(function (response) {
-                $scope.serverResponse = response;
-            }, function () {
-                $scope.serverResponse = 'An error has occurred';
+        $scope.save = function(user) {
+            UserService.signup(user.name, $scope.photo_base64, function (data) {
+                $log.debug(data);
+                $scope.data = data
             })
         };
+
+
     });
