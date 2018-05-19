@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "jj-hackaton",
   "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "version": "0.0.1",
+  "description": "Simple web flow with user webcam authentication",
+  "repository": "git@github.com:rudkodm/jj-hackaton.git",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
