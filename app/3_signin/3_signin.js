@@ -32,6 +32,7 @@ angular.module('jj.3_signin', ['ngRoute'])
         $scope.take_snapshot = function () {
             Webcam.snap(function (data_base64) {
                 UserService.signup('Dima', data_base64, function (data) {
+                    $log.debug(data);
                     $scope.data = data
                 })
             });
