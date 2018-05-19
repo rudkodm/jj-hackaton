@@ -1,5 +1,13 @@
-<p>This is Sing-In page.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+<div id="results">Your captured image will appear here...</div>
+
+<div id="my_camera"></div>
+
+<form>
+    <input type=button value="Take Snapshot" ng-click="take_snapshot()">
+    <input type=button value="Test" ng-click="test_call()">
+</form>
+
+<div>
+    {{data}}
+</div>

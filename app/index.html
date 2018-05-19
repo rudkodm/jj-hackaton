@@ -1,47 +1,140 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="jj" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="jj" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="jj" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="jj" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="jj" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="jj" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="jj" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="jj" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no,
+    width=device-width, height=device-height,
+    initial-scale=1, maximum-scale=1, minimum-scale=1">
+
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/1_landing">1_landing</a></li>
-    <li><a href="#!/2_signup">2_signup</a></li>
-    <li><a href="#!/3_signin">3_signin</a></li>
-    <li><a href="#!/4_final">4_final</a></li>
-  </ul>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#!/1_landing">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!/2_signup">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!/3_signin">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!/4_final">Cart</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sing-In</button>
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sign-Up</button>
+        </form>
+    </div>
+</nav>
 
-  <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+<div ng-view></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="./bower_components/angular/angular.js"></script>
-  <script src="./bower_components/angular-route/angular-route.js"></script>
-  <script src="./app.js"></script>
-  <script src="./1_landing/1_landing.js"></script>
-  <script src="./2_signup/2_signup.js"></script>
-  <script src="./3_signin/3_signin.js"></script>
-  <script src="./4_final/4_final.js"></script>
-  <script src="./components/version/version.js"></script>
-  <script src="./components/version/version-directive.js"></script>
-  <script src="./components/version/interpolate-filter.js"></script>
+
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="d-block mb-2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+            </svg>
+            <small class="d-block mb-3 text-muted">© 2017-2018</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Cool stuff</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Random feature</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Team feature</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Stuff for
+                    developers</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Another one</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Resource</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Resource name</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Another
+                    resource</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Final resource</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Business</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Education</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Government</a>
+                </li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Gaming</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Team</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Locations</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Privacy</a></li>
+                <li><a class="text-muted" href="https://getbootstrap.com/docs/4.1/examples/product/#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-route/angular-route.js"></script>
+<script src="./bower_components/webcamjs/webcam.js"></script>
+<script src="./app.js"></script>
+<script src="./1_landing/1_landing.js"></script>
+<script src="./2_signup/2_signup.js"></script>
+<script src="./3_signin/3_signin.js"></script>
+<script src="./4_final/4_final.js"></script>
+<script src="./services/services.js"></script>
 </body>
 </html>
