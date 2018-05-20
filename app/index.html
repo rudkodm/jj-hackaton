@@ -39,16 +39,20 @@
             <li class="nav-item" ng-class="{active: activetab=='/final'}">
                 <a class="nav-link" href="#/final">Products</a>
             </li>
+            <li class="nav-item" ng-class="{active: activetab=='/final'}">
+                <a class="nav-link" href="#/profile">Profile</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <a href="#/signin"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signin'}" type="submit" >Sing-In</button></a>
             <a href="#/signup"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signup'}" type="submit">Sign-Up</button></a>
+            <a href="#/logout"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/logout'}" type="submit">Log-Out</button></a>
         </form>
     </div>
 </nav>
 
+<p>Login is completed: {{loginCompleted}}</p>
 <div class="container-fluid" ng-view></div>
-
 
 <footer class="container py-5">
     <div class="row">

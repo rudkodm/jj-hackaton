@@ -39,18 +39,18 @@ angular.module('jj.services', [])
     })
 
 
-    .service('SessionService', function ($log) {
+    .service('SessionService', function ($log, $rootScope) {
         this.sessions = {};
-        this.loginCompleted = function (userName) {
-            return !!this.sessions[userName];
-        };
+
         this.put = function (userName, newData) {
+            $rootScope.loginCompleted = true;
             $log.debug('session_put',userName, newData);
             var oldData = this.sessions[userName];
             this.sessions[userName] = newData;
             return oldData;
         };
         this.add = function (userName, newData) {
+            $rootScope.loginCompleted = true;
             $log.debug('session_add',userName, newData);
             var oldData = this.sessions[userName];
             this.sessions[userName] = Object.assign(oldData, newData);
@@ -63,6 +63,7 @@ angular.module('jj.services', [])
         };
 
         this.drop = function (userName) {
+            $rootScope.loginCompleted = false;
             $log.debug('session_drop',userName);
             var oldData = this.sessions[userName];
             delete this.sessions[userName];

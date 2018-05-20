@@ -18,9 +18,7 @@ angular.module('jj.2_signup', ['ngRoute'])
                 $scope.photo_base64 = photo_base64;
                 UserService.signin(photo_base64, function (data) {
                     $log.debug(data);
-
                     var faceDetails = data.faceInfo.FaceDetails[0];
-                    $scope.data = faceDetails;
                     $scope.user = {age: faceDetails.AgeRange.Low, gender: faceDetails.Gender.Value};
 
                 })
@@ -30,12 +28,10 @@ angular.module('jj.2_signup', ['ngRoute'])
         $scope.save = function(user) {
             UserService.signup(user.name, $scope.photo_base64, function (data) {
                 $log.debug(data);
-                $scope.data = data;
                 var res = data.indexingPhotoData.FaceRecords[0];
                 var face = res.Face;
-                var faceDetails = res.FaceDetails;
-
-                SessionService.put(user.name, {
+                var faceDetails = res.FaceDetail;
+                var sessionData = {
                     name: face.ExternalImageId,
                     confidence: face.Confidence,
                     photo: $scope.photo_base64,
@@ -47,7 +43,9 @@ angular.module('jj.2_signup', ['ngRoute'])
                     eyeglasses: faceDetails.Eyeglasses,
                     sunglasses: faceDetails.Eyeglasses,
                     mustache: faceDetails.Mustache
-                })
+                };
+                SessionService.put(user.name, sessionData)
+                $scope.sessionData = sessionData;
             })
         };
 

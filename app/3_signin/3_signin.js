@@ -19,8 +19,7 @@ angular.module('jj.3_signin', ['ngRoute'])
                 UserService.signin(photo_base64, function (data) {
                     $log.debug(data);
                     var face = data.faceInfo.FaceDetails[0];
-
-                    SessionService.put(data.detectedFace, {
+                    var sessionData = {
                         name: data.detectedFace,
                         confidence: data.confidence,
                         photo: photo_base64,
@@ -32,7 +31,10 @@ angular.module('jj.3_signin', ['ngRoute'])
                         eyeglasses: face.Eyeglasses,
                         sunglasses: face.Eyeglasses,
                         mustache: face.Mustache
-                    })
+                    };
+
+                    SessionService.put(data.detectedFace, sessionData)
+                    $scope.sessionData = sessionData;
                 })
             });
         }
