@@ -7,7 +7,7 @@
 
 
     <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-left overflow-hidden my-3 p-3"  ng-controller="signupCtrl">
-        <div ng-show="photo_base64 != null"><img src="{{photo_base64}}" height="50%" width="50%" /></div>
+        <div ng-if="photo_base64"><img src="{{photo_base64}}" height="50%" width="50%" /></div>
         <form novalidate class="simple-form">
             <label>Name: <input class="form-control" type="text" ng-model="user.name" /></label><br />
             <label>Gender: <input class="form-control" type="text" ng-model="user.gender" placeholder="{{gender}}"/></label><br />

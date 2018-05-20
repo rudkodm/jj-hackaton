@@ -30,16 +30,23 @@ angular.module('jj.2_signup', ['ngRoute'])
         $scope.save = function(user) {
             UserService.signup(user.name, $scope.photo_base64, function (data) {
                 $log.debug(data);
-                $scope.data = data
-                var face = data.faceInfo.FaceDetails[0]
+                $scope.data = data;
+                var res = data.indexingPhotoData.FaceRecords[0];
+                var face = res.Face;
+                var faceDetails = res.FaceDetails;
 
                 SessionService.put(user.name, {
-                    name: user.name,
+                    name: face.ExternalImageId,
+                    confidence: face.Confidence,
                     photo: $scope.photo_base64,
-                    age: face.AgeRange,
-                    gender: face.Gender,
-                    emotions: face.Emotions,
-                    beard: face.Beard
+                    skin: "todo",
+                    age: faceDetails.AgeRange,
+                    gender: faceDetails.Gender,
+                    emotions: faceDetails.Emotions,
+                    beard: faceDetails.Beard,
+                    eyeglasses: faceDetails.Eyeglasses,
+                    sunglasses: faceDetails.Eyeglasses,
+                    mustache: faceDetails.Mustache
                 })
             })
         };
