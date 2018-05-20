@@ -16,7 +16,7 @@ angular.module('jj', [
             .when("/landing", {
                 templateUrl: '1_landing/1_landing.html',
                 controller: 'landingCtrl',
-                activetab: 'landing'
+                activetab: 'landing' 
             })
             .when("/signup", {
                 templateUrl: '2_signup/2_signup.html',
