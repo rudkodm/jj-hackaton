@@ -39,19 +39,18 @@
             <li class="nav-item" ng-class="{active: activetab=='/final'}">
                 <a class="nav-link" href="#/final">Products</a>
             </li>
-            <li class="nav-item" ng-class="{active: activetab=='/final'}">
-                <a class="nav-link" href="#/profile">Profile</a>
+            <li class="nav-item" ng-class="{active: activetab=='/profile'}">
+                <a class="nav-link" href="#/profile" ng-show="session">Profile</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <a href="#/signin"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signin'}" type="submit" >Sing-In</button></a>
-            <a href="#/signup"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signup'}" type="submit">Sign-Up</button></a>
-            <a href="#/logout"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/logout'}" type="submit">Log-Out</button></a>
+            <a ng-show="!session" href="#/signin"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signin'}" type="submit" >Sing-In</button></a>
+            <a ng-show="!session" href="#/signup"><button class="btn btn-outline-dark my-2 my-sm-0" ng-class="{active: activetab=='/signup'}" type="submit">Sign-Up</button></a>
+            <a ng-show="session" href="#/landing"><button class="btn btn-outline-dark my-2 my-sm-0" type="submit" ng-click="session = null">Log-Out</button></a>
         </form>
     </div>
 </nav>
 
-<p>Login is completed: {{loginCompleted}}</p>
 <div class="container-fluid" ng-view></div>
 
 <footer class="container py-5">
@@ -132,6 +131,7 @@
 <script src="./2_signup/2_signup.js"></script>
 <script src="./3_signin/3_signin.js"></script>
 <script src="./4_final/4_final.js"></script>
+<script src="./5_profile/5_profile.js"></script>
 <script src="./services/services.js"></script>
 </body>
 </html>

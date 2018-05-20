@@ -2,7 +2,7 @@
 
 angular.module('jj.2_signup', ['ngRoute'])
 
-    .controller('signupCtrl', function ($scope, $log, UserService, SessionService) {
+    .controller('signupCtrl', function ($scope, $log, $location, UserService, SessionService) {
         Webcam.set({
             width: 320,
             height: 240,
@@ -44,8 +44,9 @@ angular.module('jj.2_signup', ['ngRoute'])
                     sunglasses: faceDetails.Eyeglasses,
                     mustache: faceDetails.Mustache
                 };
-                SessionService.put(user.name, sessionData)
+                SessionService.put(user.name, sessionData);
                 $scope.sessionData = sessionData;
+                $location.path('/profile');
             })
         };
 

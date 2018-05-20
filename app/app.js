@@ -7,6 +7,7 @@ angular.module('jj', [
     'jj.2_signup',
     'jj.3_signin',
     'jj.4_final',
+    'jj.5_profile',
     'jj.services'
 ])
 
@@ -31,6 +32,11 @@ angular.module('jj', [
                 templateUrl: '4_final/4_final.html',
                 controller: 'finalCtrl',
                 activetab: 'final'
+            })
+            .when("/profile", {
+                templateUrl: '5_profile/5_profile.html',
+                controller: 'profileCtrl',
+                activetab: 'profile'
             })
             .otherwise({redirectTo: '/landing'});
     }])
