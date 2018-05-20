@@ -34,4 +34,30 @@ angular.module('jj.services', [])
             return {data: 'some data'}
         };
 
-    });
+    })
+
+
+    .service('SessionService', function ($log) {
+        this.sessions = {};
+        this.put = function (userName, newData) {
+            var oldData = sessions[userName];
+            sessions[userName] = newData;
+            return oldData;
+        };
+        this.add = function (userName, newData) {
+            var oldData = sessions[userName];
+            sessions[userName] = Object.assign(oldData, newData);
+            return oldData;
+        };
+
+        this.get = function (userName) {
+            return sessions[userName];
+        };
+
+        this.drop = function (userName) {
+            var oldData = sessions[userName];
+            delete sessions[userName];
+            return oldData;
+        };
+    })
+;

@@ -2,7 +2,7 @@
 
 angular.module('jj.2_signup', ['ngRoute'])
 
-    .controller('signupCtrl', function ($scope, $log, UserService) {
+    .controller('signupCtrl', function ($scope, $log, UserService, SessionService) {
         Webcam.set({
             width: 320,
             height: 240,
@@ -22,6 +22,7 @@ angular.module('jj.2_signup', ['ngRoute'])
                     var faceDetails = data.faceInfo.FaceDetails[0];
                     $scope.data = faceDetails;
                     $scope.user = {age: faceDetails.AgeRange.Low, gender: faceDetails.Gender.Value};
+
                 })
             });
         };
@@ -30,6 +31,16 @@ angular.module('jj.2_signup', ['ngRoute'])
             UserService.signup(user.name, $scope.photo_base64, function (data) {
                 $log.debug(data);
                 $scope.data = data
+                var face = data.faceInfo.FaceDetails[0]
+
+                SessionService.put(user.name, {
+                    name: user.name,
+                    photo: $scope.photo_base64,
+                    age: face.AgeRange,
+                    gender: face.Gender,
+                    emotions: face.Emotions,
+                    beard: face.Beard
+                })
             })
         };
 

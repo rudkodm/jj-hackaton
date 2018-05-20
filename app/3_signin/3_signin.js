@@ -20,7 +20,7 @@ angular.module('jj.3_signin', ['ngRoute'])
                     $log.debug(data);
                     var face = data.faceInfo.FaceDetails[0];
                     $scope.data = {
-                        detectedFace: data.detectedFace,
+                        name: data.detectedFace,
                         confidence: face.Confidence,
                         age: face.AgeRange,
                         gender: face.Gender,
