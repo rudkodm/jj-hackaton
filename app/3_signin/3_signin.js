@@ -30,7 +30,8 @@ angular.module('jj.3_signin', ['ngRoute'])
                         beard: face.Beard,
                         eyeglasses: face.Eyeglasses,
                         sunglasses: face.Eyeglasses,
-                        mustache: face.Mustache
+                        mustache: face.Mustache,
+                        boundingBox: face.BoundingBox
                     };
 
                     SessionService.put(data.detectedFace, sessionData);

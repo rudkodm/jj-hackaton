@@ -42,7 +42,8 @@ angular.module('jj.2_signup', ['ngRoute'])
                     beard: faceDetails.Beard,
                     eyeglasses: faceDetails.Eyeglasses,
                     sunglasses: faceDetails.Eyeglasses,
-                    mustache: faceDetails.Mustache
+                    mustache: faceDetails.Mustache,
+                    boundingBox: faceDetails.BoundingBox
                 };
                 SessionService.put(user.name, sessionData);
                 $scope.sessionData = sessionData;
